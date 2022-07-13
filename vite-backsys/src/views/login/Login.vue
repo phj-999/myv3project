@@ -31,6 +31,8 @@
   import { reactive, ref } from 'vue'
   import type { FormInstance } from 'element-plus'
   import { LoginFormInt } from './types'
+  import useStore from '@/store'
+  import { useRouter } from 'vue-router'
 
   const ruleFormRef = ref<FormInstance>()
   //用户名和密码
@@ -68,16 +70,22 @@
     ]
   })
 
+  const { user } = useStore()
+  const router = useRouter()
+
   const submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate((valid) => {
       if (valid) {
         console.log('submit!')
+        user.loginAction(ruleForm)
+        router.push('/')
       } else {
         console.log('error submit!')
         return false
       }
     })
+    console.log(formEl, 'formEl')
   }
 
   const resetForm = (formEl: FormInstance | undefined) => {
@@ -87,7 +95,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '@/assets/global.scss';
   .login-box {
     width: 100%;
     height: 100%;

@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
     "format": "prettier --write \"src/**/*.js\" \"src/**/*.vue\""
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "axios": "^0.27.2",
     "element-plus": "^2.2.9",
     "node-sass": "^7.0.1",
+    "pinia": "^2.0.16",
     "sass": "^1.53.0",
     "vue": "^3.2.25",
     "vue-router": "^4.1.2"
