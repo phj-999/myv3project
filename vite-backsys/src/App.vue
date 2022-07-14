@@ -4,4 +4,6 @@
 
 <script setup lang="ts"></script>
 
-<style lang="sass" scoped></style>
+<style lang="scss">
+  @import '@/styles/global.scss';
+</style>

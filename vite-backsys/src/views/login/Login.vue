@@ -95,6 +95,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import '@/styles/global.scss';
   .login-box {
     width: 100%;
     height: 100%;

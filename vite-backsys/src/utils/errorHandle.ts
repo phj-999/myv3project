@@ -1,4 +1,4 @@
-import { ElNotification } from 'element-plus/lib/components'
+import { ElNotification } from 'element-plus'
 
 /**
  * 请求失败后的错误统一处理

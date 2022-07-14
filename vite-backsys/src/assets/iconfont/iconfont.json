@@ -1,0 +1,30 @@
+{
+  "id": "2310570",
+  "name": "后台管理项目",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "30178391",
+      "name": "个人中心",
+      "font_class": "gerenzhongxin",
+      "unicode": "100da",
+      "unicode_decimal": 65754
+    },
+    {
+      "icon_id": "30308981",
+      "name": "小熊猫",
+      "font_class": "xiaoxiongmao",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "6202517",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    }
+  ]
+}

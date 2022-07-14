@@ -1,7 +1,7 @@
 //axios创建实例
 import { errorHandle } from '@/utils/errorHandle'
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { ElMessage } from 'element-plus/lib/components'
+import { ElMessage } from 'element-plus'
 import localCache from '@/utils/cache'
 import { config, RequestEnums } from './config'
 import { ResultData } from './type'
