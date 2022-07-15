@@ -20,6 +20,6 @@ export class InitData {
     introduce: '',
     page: 1,
     count: 0, //总条数
-    pagesize: 10 //每页默认显示条数
+    pagesize: 5 //每页默认显示条数
   }
 }

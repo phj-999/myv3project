@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
   import { onMounted, reactive, computed, watch } from 'vue'
-  import { InitData, ListInt } from '@/types/goodstype'
+  import { InitData, ListInt } from '@/types/view/goodstype'
   import useStore from '@/store'
   import { storeToRefs } from 'pinia'
 

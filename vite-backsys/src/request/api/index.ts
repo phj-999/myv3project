@@ -29,3 +29,13 @@ export interface goodslist {
 export const getGoodsList = () => {
   return request.get('/getGoodsList')
 }
+
+/**角色列表信息 */
+export const roleListRequest = () => {
+  return request.get('/getRoleList')
+}
+
+/**用户列表信息 */
+export const userListRequest = () => {
+  return request.get('/getUserList')
+}
