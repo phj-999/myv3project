@@ -20,6 +20,7 @@
     "element-plus": "^2.2.9",
     "node-sass": "^7.0.1",
     "pinia": "^2.0.16",
+    "pinia-plugin-persistedstate": "^1.6.1",
     "sass": "^1.53.0",
     "vue": "^3.2.25",
     "vue-router": "^4.1.2"

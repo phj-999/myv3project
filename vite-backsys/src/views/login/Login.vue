@@ -30,7 +30,7 @@
 <script lang="ts" setup>
   import { reactive, ref } from 'vue'
   import type { FormInstance } from 'element-plus'
-  import { LoginFormInt } from './types'
+  import { LoginFormInt } from '@/types/login/login'
   import useStore from '@/store'
   import { useRouter } from 'vue-router'
 

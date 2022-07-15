@@ -14,3 +14,18 @@ interface accountData {
 export const loginRequest = (params: accountData) => {
   return request.post<LoginResData>('/login', params)
 }
+
+/**商品列表接口 */
+interface goodsdata {
+  [key: number]: { userId: number; id: number; title: string; introduce: string }
+}
+export interface goodslist {
+  code: number
+  message: string
+  //data: Array<object>
+  data: goodsdata
+}
+
+export const getGoodsList = () => {
+  return request.get('/getGoodsList')
+}

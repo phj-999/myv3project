@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { UserState } from '@/types/store/user'
 import localCache from '@/utils/cache'
-import { LoginFormInt } from '@/views/login/types'
+import { LoginFormInt } from '@/types/login/login'
 import { loginRequest } from '@/request/api'
 /**
  *  1. 定义并导出容器
