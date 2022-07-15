@@ -6,10 +6,7 @@
         <el-input v-model="formdata.selectData.title" placeholder="输入搜索关键字" />
       </el-form-item>
       <el-form-item label="详情">
-        <el-select v-model="formdata.selectData.introduce" placeholder="输入搜索关键字">
-          <el-option label="Zone one" value="shanghai" />
-          <el-option label="Zone two" value="beijing" />
-        </el-select>
+        <el-input v-model="formdata.selectData.introduce" placeholder="输入搜索关键字" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">查询</el-button>
@@ -23,7 +20,7 @@
     </el-table>
     <el-pagination
       layout="prev, pager, next"
-      :total="formdata.selectData.count"
+      :total="formdata.selectData.count * 2"
       @current-change="currentChange"
       @size-change="sizeChange"
     />
@@ -31,8 +28,8 @@
 </template>
 
 <script setup lang="ts">
-  import { onMounted, reactive, computed } from 'vue'
-  import { InitData } from '@/types/goodstype'
+  import { onMounted, reactive, computed, watch } from 'vue'
+  import { InitData, ListInt } from '@/types/goodstype'
   import useStore from '@/store'
   import { storeToRefs } from 'pinia'
 
@@ -56,6 +53,37 @@
       )
     })
   })
+  /**搜索查询功能 */
+  const onSubmit = () => {
+    let arr: ListInt[] = [] //用来接收查询后展示的数据
+    if (formdata.selectData.title || formdata.selectData.introduce) {
+      //过滤
+      if (formdata.selectData.title) {
+        // 将过滤出的数组赋值给arr
+        arr = formdata.list.filter((v) => {
+          return v.title.indexOf(formdata.selectData.title) !== -1
+        })
+      }
+      if (formdata.selectData.introduce) {
+        // 将过滤出的数组赋值给arr
+        arr = formdata.list.filter((v) => {
+          return v.introduce.indexOf(formdata.selectData.introduce) !== -1
+        })
+      }
+    } else {
+      arr = formdata.list
+    }
+    formdata.selectData.count = arr.length
+    formdata.list = arr
+  }
+  //监听输入框内容，如果没有，就返回初次加载的原始内容
+  watch([() => formdata.selectData.title, () => formdata.selectData.introduce], () => {
+    if (formdata.selectData.title == '' && formdata.selectData.introduce == '') {
+      goodsLists.getgoodsLists() //执行获取数据函数
+      formdata.list = goodsdata.value
+      formdata.selectData.count = goodsdata.value.length //总条数为数据的长度
+    }
+  })
 
   onMounted(() => {
     goodsLists.getgoodsLists() //执行获取数据函数
@@ -65,9 +93,6 @@
     console.log('formdata.list', formdata.list)
     console.log(formdata.selectData.count)
   })
-  const onSubmit = () => {
-    console.log('asdsd')
-  }
 </script>
 
 <style lang="scss" scoped></style>
