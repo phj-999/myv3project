@@ -1,5 +1,5 @@
 import request from '../service/index'
-
+import { roledatatype } from '@/types/store/role'
 // 登录成功后返回的token
 export interface LoginResData {
   token: string

@@ -35,6 +35,16 @@ const routes: Array<RouteRecordRaw> = [
           title: '用户列表'
         },
         component: () => import('@/views/Home/cpns/user/UserView.vue')
+      },
+      {
+        path: 'role',
+        name: 'role',
+
+        meta: {
+          isShow: true,
+          title: '角色列表'
+        },
+        component: () => import('@/views/Home/cpns/role/Role.vue')
       }
     ]
   }
