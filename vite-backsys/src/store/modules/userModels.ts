@@ -42,8 +42,8 @@ export const useUserStore = defineStore({
     async getuserListAction() {
       try {
         const userlistRes = await userListRequest()
-        this.userList = userlistRes
-        console.log(this.roleList, 'this')
+        this.userList = userlistRes?.data
+        // console.log(this.userList, 'this')
       } catch (error) {
         console.log(error)
       }
@@ -52,7 +52,8 @@ export const useUserStore = defineStore({
     async getroleListAction() {
       try {
         const roleListRes = await roleListRequest()
-        this.roleList = roleListRes
+        this.roleList = roleListRes.data
+        // console.log(this.roleList, 'this')
       } catch (error) {
         console.log(error)
       }
