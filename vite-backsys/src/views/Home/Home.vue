@@ -11,7 +11,7 @@
             </span>
           </el-col>
           <el-col :span="16"></el-col>
-          <el-col :span="4"> <span class="logout">退出登录</span> </el-col>
+          <el-col :span="4"> <span class="logout" @click="logout">退出登录</span> </el-col>
         </el-row>
       </el-header>
       <el-container>
@@ -20,7 +20,7 @@
             active-text-color="#ffd04b"
             background-color="#545c64"
             class="el-menu-vertical-demo"
-            default-active="2"
+            :default-active="localpath"
             text-color="#fff"
             router
           >
@@ -39,11 +39,18 @@
 
 <script setup lang="ts">
   import SvgIcon from '@/components/SvgIcon/SvgIcon.vue'
-  import { useRouter } from 'vue-router'
+  import { useRoute, useRouter } from 'vue-router'
+  import localCache from '@/utils/cache'
 
   const router = useRouter()
   //过滤出有isshow的路由
   const list = router.getRoutes().filter((i) => i.meta.isShow)
+  const localpath = useRoute()
+  //退出登录
+  const logout = () => {
+    localCache.deleteCache('token')
+    router.push('/login')
+  }
 </script>
 
 <style lang="scss" scoped>
