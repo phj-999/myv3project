@@ -39,3 +39,8 @@ export const roleListRequest = () => {
 export const userListRequest = () => {
   return request.get('/getUserList')
 }
+
+/**权限列表接口 */
+export const authorityListRequest = () => {
+  return request.get('/getAuthorityList')
+}
